@@ -1,0 +1,22 @@
+{
+  "round": "0",
+  "status": "FINISHED",
+  "profit": 2474.2890625,
+  "positions": [
+    {
+      "symbol": "XIRECS",
+      "quantity": 122488
+    },
+    {
+      "symbol": "EMERALDS",
+      "quantity": -14
+    },
+    {
+      "symbol": "TOMATOES",
+      "quantity": 4
+    }
+  ],
+  "pnl_validation_max_abs_diff": 0.0,
+  "rows_activities": 4000,
+  "rows_graph": 500
+}

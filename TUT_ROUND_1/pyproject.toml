@@ -1,0 +1,15 @@
+[project]
+name = "tut-round1"
+version = "0.1.0"
+description = "Prosperity tutorial round"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "plotly>=5.18",
+    "dash>=2.14",
+]
+
+[tool.uv]
+

@@ -1,0 +1,68 @@
+{
+  "days": {
+    "-2": {
+      "EMERALDS": {
+        "rows_prices": 10000,
+        "rows_trades": 191,
+        "mid_mean": 9999.9972,
+        "mid_std": 0.7299626322932252,
+        "spread_mean": 15.7336,
+        "spread_p90": 16.0,
+        "trade_qty_total": 1040.0,
+        "signed_qty_total": -42.0,
+        "buy_trade_share": 0.47643979057591623,
+        "sell_trade_share": 0.5235602094240838
+      },
+      "TOMATOES": {
+        "rows_prices": 10000,
+        "rows_trades": 397,
+        "mid_mean": 5007.9485,
+        "mid_std": 10.28871389014931,
+        "spread_mean": 13.0652,
+        "spread_p90": 14.0,
+        "trade_qty_total": 1411.0,
+        "signed_qty_total": -25.0,
+        "buy_trade_share": 0.4760705289672544,
+        "sell_trade_share": 0.5239294710327456
+      }
+    },
+    "-1": {
+      "EMERALDS": {
+        "rows_prices": 10000,
+        "rows_trades": 208,
+        "mid_mean": 9999.998,
+        "mid_std": 0.7166919594473441,
+        "spread_mean": 15.7432,
+        "spread_p90": 16.0,
+        "trade_qty_total": 1149.0,
+        "signed_qty_total": 7.0,
+        "buy_trade_share": 0.5,
+        "sell_trade_share": 0.5
+      },
+      "TOMATOES": {
+        "rows_prices": 10000,
+        "rows_trades": 423,
+        "mid_mean": 4977.56775,
+        "mid_std": 14.578497460174683,
+        "spread_mean": 12.9753,
+        "spread_p90": 14.0,
+        "trade_qty_total": 1442.0,
+        "signed_qty_total": -90.0,
+        "buy_trade_share": 0.46808510638297873,
+        "sell_trade_share": 0.5319148936170213
+      }
+    }
+  },
+  "overall": {
+    "days": [
+      -2,
+      -1
+    ],
+    "products": [
+      "EMERALDS",
+      "TOMATOES"
+    ],
+    "rows_prices": 40000,
+    "rows_trades": 1219
+  }
+}

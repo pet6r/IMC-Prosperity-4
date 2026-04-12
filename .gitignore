@@ -1,0 +1,6 @@
+/docs/
+/imc-prosperity-3-visualizer/
+/prosperity_rust_backtester/
+
+__pycache__/
+*.zip
