@@ -21,9 +21,12 @@ from pathlib import Path
 
 import pandas as pd
 
-_TUT = Path(__file__).resolve().parent.parent
-TUTORIAL_EXTRACTED = _TUT / "data" / "tutorial" / "extracted"
-TUTORIAL_CLEAN = _TUT / "data" / "tutorial" / "clean"
+_ROUND = Path(__file__).resolve().parent.parent
+# Default to the first data/<set>/extracted dir we can find, else tutorial layout.
+_DEFAULT_DATA_ROOT = _ROUND / "data"
+_candidates = sorted(_DEFAULT_DATA_ROOT.glob("*/extracted"))
+TUTORIAL_EXTRACTED = _candidates[0] if _candidates else _DEFAULT_DATA_ROOT / "tutorial" / "extracted"
+TUTORIAL_CLEAN = TUTORIAL_EXTRACTED.parent / "clean"
 
 PRICE_NUMERIC_COLS = [
     "bid_price_1",
@@ -46,7 +49,7 @@ TRADE_NUMERIC_COLS = ["timestamp", "price", "quantity"]
 
 
 def _load_prices(data_dir: Path) -> pd.DataFrame:
-    files = sorted(data_dir.glob("prices_round_0_day_*.csv"))
+    files = sorted(data_dir.glob("prices_round_*_day_*.csv"))
     if not files:
         raise FileNotFoundError(f"No prices files found in {data_dir}")
 
@@ -72,7 +75,7 @@ def _day_from_name(path: Path) -> int:
 
 
 def _load_trades(data_dir: Path) -> pd.DataFrame:
-    files = sorted(data_dir.glob("trades_round_0_day_*.csv"))
+    files = sorted(data_dir.glob("trades_round_*_day_*.csv"))
     if not files:
         raise FileNotFoundError(f"No trades files found in {data_dir}")
 

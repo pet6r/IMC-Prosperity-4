@@ -7,8 +7,6 @@ Run from ``TUT_ROUND_1``:
   python -m tools tutorial-pipeline
   python -m tools tutorial-plot
   python -m tools submission-plot data/submissions/72618/72618.log
-  python -m tools suggest data/submissions/72618/clean
-  python -m tools report data/submissions/72618/clean
   python -m tools benchmark data/submissions/64242/64242.log
   python -m tools plotly
   python -m tools dash
@@ -21,12 +19,12 @@ from pathlib import Path
 _TOOLS_DIR = Path(__file__).resolve().parent
 
 COMMANDS: dict[str, str] = {
+    "alpha-scan": "alpha_scan.py",
     "log-export": "log_export.py",
+    "replay-plot": "replay_plot.py",
     "submission-plot": "submission_plot.py",
     "tutorial-pipeline": "tutorial_pipeline.py",
     "tutorial-plot": "tutorial_plot.py",
-    "suggest": "suggest_params.py",
-    "report": "optimize_strategy.py",
     "benchmark": "benchmark.py",
     "plotly": "plotly_dashboard.py",
     "dash": "dash_app.py",

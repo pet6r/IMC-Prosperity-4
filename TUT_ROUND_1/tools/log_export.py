@@ -56,7 +56,6 @@ def graph_to_dataframe(graph_log: str) -> pd.DataFrame:
 
 def pnl_wide_by_timestamp(activities: pd.DataFrame) -> pd.DataFrame:
     """One row per timestamp: per-product PnL (last row per product at that ts)."""
-    # Two rows per timestamp (one per product); profit_and_loss is per-product contribution
     sub = activities[["timestamp", "product", "profit_and_loss"]].copy()
     wide = sub.pivot_table(
         index="timestamp",
@@ -64,13 +63,11 @@ def pnl_wide_by_timestamp(activities: pd.DataFrame) -> pd.DataFrame:
         values="profit_and_loss",
         aggfunc="last",
     )
-    wide = wide.rename(
-        columns={
-            "EMERALDS": "pnl_emeralds",
-            "TOMATOES": "pnl_tomatoes",
-        }
-    )
-    wide["pnl_sum_products"] = wide["pnl_emeralds"] + wide["pnl_tomatoes"]
+    # Rename product columns -> pnl_<lowercase> for any product set.
+    rename_map = {col: f"pnl_{col.lower()}" for col in wide.columns}
+    wide = wide.rename(columns=rename_map)
+    pnl_cols = list(rename_map.values())
+    wide["pnl_sum_products"] = wide[pnl_cols].sum(axis=1)
     wide = wide.reset_index()
     return wide
 
